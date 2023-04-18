@@ -4,21 +4,21 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Install dependancies
-      run: npm i --legacy-peer-deps
+      - name: Install dependancies
+        run: npm i --legacy-peer-deps
 
   test:
     runs-on: ubuntu-latest
     needs: init
     if: "!contains(github.event.head_commit.message, '[skip tests]')"
     steps:
-    - name: Run tests
-      run: npm run test
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+      - name: Run tests
+        run: npm run test
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
-    - name: Run Lint
-      run: npm run lint
+      - name: Run Lint
+        run: npm run lint
