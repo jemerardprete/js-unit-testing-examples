@@ -29,8 +29,8 @@ jobs:
         run: npm i --legacy-peer-deps
 
   test:
-    runs-on: ubuntu-latest
     needs: init
+    runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip tests]')"
     steps:
       - name: Run tests
