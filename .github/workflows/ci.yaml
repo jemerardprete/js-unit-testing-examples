@@ -16,9 +16,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip tests]')"
     steps:
       - name: Run tests
-        run: npm run test
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        run: npm test
 
       - name: Run Lint
         run: npm run lint
