@@ -49,8 +49,11 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: Install dependancies
+        run: npm i --legacy-peer-deps
+
       - name: Run tests
-        run: npx mocha
+        run: npm run test
 
       - name: Run Lint
         run: npm run lint
